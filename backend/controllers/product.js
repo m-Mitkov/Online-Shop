@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
             data: product
         });
     } catch (error) {
-        res.status(500).json({
+        res.status(500).json(error || {
             status: 'error',
             message: 'Creation of product was not successfull!'
         })
@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
             data: products
         });
     } catch (error) {
-        res.status(500).json({
+        res.status(500).json(error || {
             status: 'error',
             message: 'Could not retireve any data'
         })
@@ -44,7 +44,7 @@ router.get('/:id', async (req, res) => {
             data: product
         });
     } catch (error) {
-        res.status(500).json({
+        res.status(500).json(error || {
             status: 'error',
             message: 'Product not found'
         })
@@ -60,7 +60,7 @@ router.put('/:id', async (req, res) => {
             data: product
         });
     } catch (error) {
-        res.status(500).json({
+        res.status(500).json(error || {
             status: 'error',
             message: 'Update of product was not successfull'
         })
@@ -75,7 +75,7 @@ router.delete('/:id', async (req, res) => {
             message: 'Product successfully deleted!'
         });
     } catch (error) {
-        res.status(500).json({
+        res.status(500).json(error || {
             status: 'error',
             message: 'Delete of product was not successfull'
         })
