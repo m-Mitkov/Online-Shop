@@ -6,7 +6,10 @@ module.exports = app => {
 
     app.use(express.json());
 
-    app.use(cors());
+    app.use(cors({
+        credentials: true,
+        origin: 'http://localhost:3000'
+}));
 
     app.use(cookieParser())
 };

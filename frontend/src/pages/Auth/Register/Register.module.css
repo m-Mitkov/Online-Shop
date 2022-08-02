@@ -1,0 +1,19 @@
+.paper {
+    margin-top: theme pacing(8);
+    display: 'flex';
+    flex-direction: 'column';
+    align-items: 'center';
+  }
+  .avatar {
+    margin: theme spacing(1);
+    background-color: theme palette secondary main;
+  }
+  .form {
+    width: '100%';
+    margin-top: theme spicing(3);
+    /* marginTop: theme.spacing(3), */
+
+  }
+  .submit {
+    margin: theme spacing(3, 0, 2);
+  }
