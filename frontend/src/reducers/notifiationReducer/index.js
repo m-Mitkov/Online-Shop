@@ -13,14 +13,14 @@ const notificationReducer = (state, action) => {
 
         case SUCCESS_NOTIFICATION:
             return state.setIn([], fromJS(merge(state, {
-                active: !state.active,
+                active: true,
                 type: SUCCESS,
                 message: payload.message
             })));
 
         case ERROR_NOTIFICATION:
             return state.setIn([], fromJS(merge(state, {
-                active: !state.active,
+                active: true,
                 type: ERROR,
                 message: payload.message
             })));

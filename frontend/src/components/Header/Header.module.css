@@ -1,0 +1,27 @@
+
+  .navbar {
+    overflow: hidden;
+    background-color: #3f51b5;
+    position: sticky;
+  }
+  
+
+  .navbar .linkRight {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    float: right;
+  }
+  
+  .navbar .linkLeft {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    float: left;
+  }

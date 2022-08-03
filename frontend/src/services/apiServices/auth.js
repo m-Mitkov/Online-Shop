@@ -11,7 +11,7 @@ export const login = (data) => {
         body: JSON.stringify(data)
     })
         .then(res => res.json());
-}
+};
 
 export const logout = () => {
     return fetch(BASE_URL + LOGOUT, {
@@ -22,7 +22,7 @@ export const logout = () => {
         credentials: 'include',
     })
     .then(res => res.json());
-}
+};
 
 export const register = (data) => {
     return fetch(BASE_URL + REGISTER, {
@@ -34,4 +34,4 @@ export const register = (data) => {
         body: JSON.stringify(data)
     })
     .then(res => res.json());
-}
+};

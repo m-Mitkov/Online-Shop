@@ -14,9 +14,8 @@ import {
 
 import Permissions from '../../../components/Permissions';
 import style from './Register.module.css';
-import { register } from '../../../services/apiServices/auth';
+import { register } from '../../../actions/authActions';
 import { Context } from '../../../Store';
-import { SUCCESS_NOTIFICATION, ERROR_NOTIFICATION } from '../../../actions/actionTypes';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -37,13 +36,8 @@ const Register = () => {
     const [formData, setFormData] = useState({
         username: '',
         password: '',
-        rePassword: '',
-        permissions: []
-    })
-
-    // if (user.email) {
-    //     return <Redirect to="/" />
-    // }
+        rePassword: ''
+    });
 
     const handleChange = e => {
 
@@ -52,34 +46,11 @@ const Register = () => {
         setFormData({ ...formData, [name]: value })
     };
 
-    const submitData = (e) => {
+    const submitData = async e => {
         e.preventDefault();
 
-        Promise.all([
-            // validate input data before sending to BE
-            // show 'helper text', to help user
-            // each FN to return Promise
-        ])
-        .then(() => {
-            register({
-                ...formData,
-                permissions
-                })
-                .then(res => {
-                    const response = JSON.parse(res);
-                    if (response.type === 'error') throw new Error(response);
-                        
-                    notifyDispatch({type: SUCCESS_NOTIFICATION, payload: { message: response.message }})
-                    navigate('/login');
-                })
-                .catch(err => {
-                   notifyDispatch({type: ERROR_NOTIFICATION, payload: { message: err.message }});
-                })
-            })
-            .catch(err => {
-                notifyDispatch({type: ERROR_NOTIFICATION, payload: { message: err.error }})
-            });
-    }
+        await register(notifyDispatch, navigate, { ...formData, permissions });
+    };
 
     return (
         <>
