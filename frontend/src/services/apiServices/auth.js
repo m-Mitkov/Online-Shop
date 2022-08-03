@@ -1,7 +1,6 @@
 import { BASE_URL, REGISTER, LOGIN, LOGOUT } from '../../enums/apiEndPoints';
 
 export const login = (data) => {
-
     return fetch(BASE_URL + LOGIN, {
         method: 'POST',
         // credentials: 'include',

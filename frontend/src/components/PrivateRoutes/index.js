@@ -7,9 +7,9 @@ const PrivateRoutes = () => {
     const { auth } = useContext(Context);
     const [user] = auth;
     const userToJS = user.toJS();
-
+    
     return (
-        userToJS.token
+        userToJS.token !== ''
             ? <Outlet />
             : <Navigate to="/login" />
     );
