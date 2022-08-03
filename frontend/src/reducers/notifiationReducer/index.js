@@ -1,7 +1,5 @@
 import { fromJS, merge } from 'immutable';
-import { ERROR_NOTIFICATION, SUCCESS_NOTIFICATION, TERMINATE_NOTIFICATION,
-    SUCCESS_CREATE_ANNOUNCEMENT } from '../../actions/actionTypes';
-// import { SUCCESS, ERROR } from '../enums/typeNotifications';
+import { ERROR_NOTIFICATION, SUCCESS_NOTIFICATION, TERMINATE_NOTIFICATION } from '../../actions/actionTypes';
 
 export const SUCCESS = 'success';
 export const ERROR = 'error';

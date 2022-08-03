@@ -14,6 +14,7 @@ import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
 import NotoficationMessage from './components/NotificationMessage/';
 import Header from './components/Header';
+import Products from './pages/Products';
 
 function App() {
   const { auth, notification } = useContext(Context);
@@ -38,7 +39,7 @@ function App() {
       }
       <Routes>
         <Route element={ <PrivateRoutes /> }>
-            {/* add table preducts here, only when loed in */}
+          <Route element={ <Products/> } path="/" />
         </Route>
         <Route element={ <Login/> } path="/login" />
         <Route element={ <Register/> } path="/register" />
