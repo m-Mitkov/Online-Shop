@@ -17,7 +17,12 @@ const authReducer = (state, action) => {
             })));
 
         case LOGOUT_SUCCESS:
-            return state.setIn([], fromJS({}))
+            return state.setIn([], fromJS({
+                username: '',
+                permissions: [],
+                _id: '',
+                'x-auth-token': ''
+            }))
 
         default: return state;
     }

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link, Navigate, useNavigate  } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom';
 
 import { 
     Avatar,
@@ -13,28 +13,20 @@ import {
 } from '@mui/material';
 
 import style from './Login.module.css';
-import { login } from '../../../services/apiServices/auth';
+import { login } from '../../../actions/authActions';
 import { Context } from '../../../Store';
-import { LOGIN_SUCCESS, SUCCESS_NOTIFICATION, ERROR_NOTIFICATION } from '../../../actions/actionTypes';
 
 const Login = () => {
-
     const navigate = useNavigate ();
 
     const { auth, notification } = useContext(Context);
     const [user, authDispatch] = auth;
     const [, notifyDispatch] = notification;
 
-    console.log(user, 'user');
-
     const [formData, setFormData] = useState({
         username: '',
         password: ''
     });
-
-    // if (user.toJS()._id) {
-    //     return <Navigate to="/" />
-    // }
 
     const handleChange = (e) => {
 
@@ -45,20 +37,8 @@ const Login = () => {
 
     const handleSbmit = async (e) => {
         e.preventDefault();
-
-        login(formData)
-            .then(res => {
-                const response = JSON.parse(res);
-                if (response.type === 'error') throw new Error(response);
-
-                authDispatch({type: LOGIN_SUCCESS, payload: response});
-                notifyDispatch({type: SUCCESS_NOTIFICATION, payload: { message: response.message }});
-            })
-            .then(() => navigate('/'))
-            .catch(err => {
-                notifyDispatch({type: ERROR_NOTIFICATION, payload: { message: err.message }});
-            });
-    }
+        await login(authDispatch, notifyDispatch, navigate, formData);
+    };
 
     return (
         <>
@@ -106,7 +86,9 @@ const Login = () => {
                             Sign In
           </Button>
                         <Grid container justify="flex-end">
-                            <Grid item>
+                            <Grid item style={{
+                                marginTop: '0.9vh'
+                            }}>
                                 <Link to="/register" variant="body2">
                                     {"Don't have an account? Sign Up"}
                                 </Link>
