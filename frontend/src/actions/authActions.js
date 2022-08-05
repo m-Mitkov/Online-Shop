@@ -23,7 +23,6 @@ export const login = (authDispatch, notifyDispatch, navigate, data) => {
     loginService(data)
         .then(res => {
             const response = JSON.parse(res);
-            console.log(response, 'responseresponseresponse');
             if (response.type === 'error') throw new Error(response);
 
             loginSuccessAction(authDispatch, response);

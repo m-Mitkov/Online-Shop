@@ -53,12 +53,13 @@ async function login(data) {
     }
 }
 
-async function updatePermissions (data, resLocals) {
+async function updatePermissions (reqBody, resLocals) {
+    const { permissions: newPermissions = [] } = reqBody;
     const { user: userToken } = resLocals || {};
     const { permissions = [], id = '' } = userToken;
     
     // const user = await User.findById(id);
-    return await User.updateOne({_id: id}, {permissions: permissions});
+    return await User.updateOne({_id: id}, {permissions: newPermissions});
 }
 
 module.exports = {

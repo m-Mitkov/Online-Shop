@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { useContext } from 'react';
 
 import { Context } from '../Store';
@@ -8,7 +7,7 @@ const usePermissions = () => {
     const [user] = auth;
     const permissions = user.getIn(['permissions']);
   
-    return [permissions];
+    return [permissions]
 };
 
 export default usePermissions;
