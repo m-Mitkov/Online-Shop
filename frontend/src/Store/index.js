@@ -21,10 +21,13 @@ export const Store = (props) => {
         message: ''
     });
     const productObj = fromJS({
-        name: '',
-        price: '',
-        currency: '',
-        _id: ''
+        product: {
+            name: '',
+            price: '',
+            currency: '',
+            _id: ''
+        },
+        products: []
     });
 
     const [auth, authDispatch] = useReducer(authReducer, authObject);

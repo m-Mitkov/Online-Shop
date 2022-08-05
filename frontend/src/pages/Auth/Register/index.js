@@ -73,7 +73,7 @@ const Register = () => {
                                     fullWidth
                                     id="username"
                                     label="Username"
-                                    onBlur={handleChange}
+                                    onChange={handleChange}
                                     autoFocus
                                 />
                             </Grid>
@@ -87,7 +87,7 @@ const Register = () => {
                                     label="Password"
                                     type="password"
                                     id="password"
-                                    onBlur={handleChange}
+                                    onChange={handleChange}
                                     autoComplete="current-password"
                                 />
                             </Grid>
@@ -101,7 +101,7 @@ const Register = () => {
                                     label="Repeat Password"
                                     type="password"
                                     id="rePassword"
-                                    onBlur={handleChange}
+                                    onChange={handleChange}
                                     autoComplete="rePassword"
                                 />
                             </Grid>

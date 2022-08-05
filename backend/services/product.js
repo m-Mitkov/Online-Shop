@@ -11,7 +11,7 @@ async function createProduct(reqData, resLocals) {
     const { name, price, currency } = reqData || {};
     const permissions = getPermisions(resLocals);
     
-    const isAllowed = permissions.some(per => per === 'CREATE');
+    const isAllowed = permissions.some(per => per === 'Create');
 
     if(!isAllowed)  throw JSON.stringify(({
         type: 'error',
@@ -27,7 +27,7 @@ async function createProduct(reqData, resLocals) {
 
 async function getById(id, resLocals) {
     const permissions = getPermisions(resLocals);
-    const isAllowed = permissions.some(per => per === 'READ');
+    const isAllowed = permissions.some(per => per === 'Read');
 
     if(!isAllowed)  throw JSON.stringify(({
         type: 'error',
@@ -39,7 +39,7 @@ async function getById(id, resLocals) {
 
 async function update(productId, data, resLocals) {
     const permissions = getPermisions(resLocals);
-    const isAllowed = permissions.some(per => per === 'UPDATE');
+    const isAllowed = permissions.some(per => per === 'Update');
 
     if(!isAllowed)  throw JSON.stringify(({
         type: 'error',
@@ -52,7 +52,7 @@ async function update(productId, data, resLocals) {
 
 async function deleteProduct(idProduct, resLocals) {
     const permissions = getPermisions(resLocals);
-    const isAllowed = permissions.some(per => per === 'DELETE');
+    const isAllowed = permissions.some(per => per === 'Delete');
 
     if(!isAllowed)  throw JSON.stringify(({
         type: 'error',
@@ -64,7 +64,7 @@ async function deleteProduct(idProduct, resLocals) {
 
 async function getAll(resLocals) {
     const permissions = getPermisions(resLocals);
-    const isAllowed = permissions.some(per => per === 'READ');
+    const isAllowed = permissions.some(per => per === 'Read');
 
     if(!isAllowed)  throw JSON.stringify(({
         type: 'error',
