@@ -20,7 +20,6 @@ export const logout = (token) => {
             'Content-type': 'application/json',
             [JWT_TOKEN]: token
         },
-        credentials: 'include',
     })
     .then(res => res.json());
 };
@@ -28,7 +27,6 @@ export const logout = (token) => {
 export const register = (data) => {
     return fetch(BASE_URL + REGISTER, {
         method: 'POST',
-        credentials: "include",
         headers:{
             'Content-type': 'application/json'
         },
