@@ -60,8 +60,8 @@ export const register = (notifyDispatch, navigate, data) => {
         });
 };
 
-export const logout = (authDispatch, notifyDispatch, navigate) => {
-    logoutService()
+export const logout = (authDispatch, notifyDispatch, navigate, token) => {
+    logoutService(token)
         .then(res => {
             const response = JSON.parse(res);
             if (response.type === 'error') throw new Error(response);

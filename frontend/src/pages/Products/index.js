@@ -66,6 +66,7 @@ const Products = () => {
   const [productData, productDispatch] = product;
   const [, notifyDispatch] = notification;
   const [user, authDispatch] = auth;
+  const userToJS = user.toJS();
 
   const productsToJs = productData.toJS();
   const {
@@ -74,12 +75,14 @@ const Products = () => {
   } = productsToJs;
 
   useEffect(() => {
-    fetchProducts(
-      productDispatch,
-      notifyDispatch,
-      navigate,
-      user.toJS()['x-auth-token']
-    );
+     if (userToJS._id !== '') {
+       fetchProducts(
+         productDispatch,
+         notifyDispatch,
+         navigate,
+         userToJS['x-auth-token']
+       );
+     }
   }, []);
 
   const handleSubmitForm = async (data) => {

@@ -13,7 +13,7 @@ const Header = () => {
     const navigate = useNavigate();
 
     const handleLogout = async () => {
-        await logout(authDispatch, notifyDispatch, navigate);
+        await logout(authDispatch, notifyDispatch, navigate, user.get('x-auth-token'));
     };
 
     const headerWithAuth = () => {

@@ -1,4 +1,5 @@
 import { BASE_URL, REGISTER, LOGIN, LOGOUT } from '../../enums/apiEndPoints';
+const JWT_TOKEN = 'x-auth-token';
 
 export const login = (data) => {
     return fetch(BASE_URL + LOGIN, {
@@ -12,11 +13,12 @@ export const login = (data) => {
         .then(res => res.json());
 };
 
-export const logout = () => {
+export const logout = (token) => {
     return fetch(BASE_URL + LOGOUT, {
+        method: 'GET',
         headers:{
             'Content-type': 'application/json',
-            'Access-Control-Allow-Credentials': true
+            [JWT_TOKEN]: token
         },
         credentials: 'include',
     })
